@@ -130,23 +130,14 @@ const rnd = new Render(ctx);
 
 const balls = [];
 
-const clr0 = new Color(...randColor());
-const clr1 = new Color(...randColor());
-const clr2 = new Color(...randColor());
+const clr = new Color(...randColor());
 
 function runtime(){
     requestAnimationFrame(runtime);
     rnd.clear('#fff');
     
-    clr1.change(...randColor(), 300);
-    clr2.change(...randColor(), 300);
-    
-    var grd = ctx.createLinearGradient(0, 0, window.innerWidth, window.innerHeight);
-    grd.addColorStop(0, clr1.value());
-    grd.addColorStop(1, clr2.value());
-    
-    //rnd.begin().rect(0, 0, window.innerWidth, window.innerHeight).fill(grd).close();
-    rnd.begin().a(400, 600, 100, 0, Math.PI * 2).fill(clr0.value()).close();
+    clr.change(...randColor());
+    rnd.begin().a(400, 600, 100, 0, Math.PI * 2).fill(clr.value()).close();
 }
 runtime();
 
@@ -162,7 +153,7 @@ function getTouchById(id){
 }
 
 canvas.addEventListener('touchstart' , (evt) => {
-    clr0.change(...randColor(), 20);
+    clr.change(...randColor(), 20);
 });
 
 canvas.addEventListener('touchmove' , (evt) => {
