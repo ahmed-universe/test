@@ -136,7 +136,7 @@ function runtime(){
     requestAnimationFrame(runtime);
     rnd.clear('#fff');
     
-    clr.change(...randColor());
+    clr.change(...randColor(), 100);
     rnd.begin().a(400, 600, 100, 0, Math.PI * 2).fill(clr.value()).close();
 }
 runtime();
